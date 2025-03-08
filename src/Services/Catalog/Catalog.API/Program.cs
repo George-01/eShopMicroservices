@@ -13,7 +13,7 @@ builder.Services.AddMarten(opt =>
 
 var app = builder.Build();
 
-// Configure the HTTO request pipelines
+// Configure the HTTP request pipelines
 app.MapCarter();
 
 app.Run();
