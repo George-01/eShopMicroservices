@@ -4,14 +4,14 @@
 
     public record GetBasketResult(ShoppingCart Cart);
 
-    public class GetBasketQueryHandler : IQueryHandler<GetBasketQuery, GetBasketResult>
+    public class GetBasketQueryHandler(IBasketRepository repository) 
+        : IQueryHandler<GetBasketQuery, GetBasketResult>
     {
-        public async Task<GetBasketResult> Handle(GetBasketQuery request, CancellationToken cancellationToken)
+        public async Task<GetBasketResult> Handle(GetBasketQuery query, CancellationToken cancellationToken)
         {
-            //ToDo: get basket from db
-            //var basket = await _repository.GetBasket(request.Username);
+            var basket = await repository.GetBasket(query.Username);
 
-            return new GetBasketResult(new ShoppingCart("test_svn"));
+            return new GetBasketResult(basket);
         }
     }
 }
