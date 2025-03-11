@@ -2,7 +2,7 @@
 {
     public class ShoppingCart
     {
-        public string Username { get; set; } = default!;
+        public string UserName { get; set; } = default!;
 
         public List<ShoppingCartItem> Items { get; set; } = new();
 
@@ -10,7 +10,7 @@
 
         public ShoppingCart(string username)
         {
-            Username = username;
+            UserName = username;
         }
 
         // Required for mapping
