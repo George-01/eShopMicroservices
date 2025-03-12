@@ -23,8 +23,7 @@ service DiscountProtoService{
 }
 
 // Discount request and response messages
-message GetDisc
-ountRequest{
+message GetDiscountRequest{
     string ProductName = 1;
 }
 
