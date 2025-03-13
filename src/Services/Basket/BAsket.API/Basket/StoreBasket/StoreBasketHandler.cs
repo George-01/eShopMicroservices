@@ -17,11 +17,11 @@
     {
         public async Task<StoreBasketResult> Handle(StoreBasketCommand command, CancellationToken cancellationToken)
         {
-            ShoppingCart cart = command.Cart;
+            //ToDo: communicate with Discount.Grpc and calculate latest prices of products into shopping cart
 
-            // ToDo: update cache
+
+            // Stored basket in database using Marten's upsert
             await repository.StoreBasket(command.Cart);
-
             return new StoreBasketResult(command.Cart.UserName);
         }
     }
