@@ -1,4 +1,6 @@
-﻿namespace Discount.Grpc.Models
+﻿using System.Text.Json.Serialization;
+
+namespace Discount.Grpc.Models
 {
     public class Coupon
     {

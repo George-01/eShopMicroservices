@@ -1,13 +1,4 @@
-﻿
-/*namespace Discount.Grpc.Protos
-{
-    public class discount
-    {
-    }
-}
-*/
-
-syntax = "proto3";
+﻿syntax = "proto3";
 
 option csharp_namespace = "Discount.Grpc";
 
@@ -24,14 +15,14 @@ service DiscountProtoService{
 
 // Discount request and response messages
 message GetDiscountRequest{
-    string ProductName = 1;
+    string productName = 1;
 }
 
 message CouponModel {
     int32 id = 1;
-    string ProductName = 2;
-    string Description = 3;
-    int32 Amount = 4;
+    string productName = 2;
+    string description = 3;
+    int32 amount = 4;
 }
 
 message CreateDiscountRequest {
@@ -43,9 +34,9 @@ message UpdateDiscountRequest {
 }
 
 message DeleteDiscountRequest {
-    int32 id = 1;
+    string productName = 1;
 }
 
 message DeleteDiscountResponse {
-    bool Success = 1;
+    bool success = 1;
 }

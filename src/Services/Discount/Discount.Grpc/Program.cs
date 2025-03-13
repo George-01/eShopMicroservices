@@ -1,15 +1,19 @@
 using Discount.Grpc.Data;
 using Discount.Grpc.Services;
+using Mapster;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddGrpc();
-builder.Services.AddDbContext<DiscountContext>(opt => 
+
+builder.Services.AddDbContext<DiscountContext>(opt =>
 opt.UseSqlite(builder.Configuration.GetConnectionString("Database")));
 
 builder.Services.AddGrpcReflection(); //to enable testing on postman
+
+TypeAdapterConfig.GlobalSettings.Default.NameMatchingStrategy(NameMatchingStrategy.IgnoreCase);
 
 var app = builder.Build();
 
