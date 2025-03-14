@@ -41,8 +41,17 @@ builder.Services.AddStackExchangeRedisCache(options =>
 // Grpc Services  ToDo: Add Grpc Services
 builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(options =>
 {
-    options.Address = new Uri(builder.Configuration["GrpcConfigs:DiscountUrl"]!);
-});
+    options.Address = new Uri(builder.Configuration["GrpcSettings:DiscountUrl"]!);
+})
+    .ConfigurePrimaryHttpMessageHandler(() =>  //avoid using this in production
+    {
+        var handler = new HttpClientHandler
+        {
+            ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+        };
+
+        return handler;
+    });
 
 // Corss-cutting Services
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
