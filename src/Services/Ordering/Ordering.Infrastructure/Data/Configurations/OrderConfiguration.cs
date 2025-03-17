@@ -8,7 +8,7 @@ namespace Ordering.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Order> builder)
         {
-            builder.HasOne(o => o.Id);
+            builder.HasKey(o => o.Id);
 
             builder.Property(o => o.Id).HasConversion(
                 orderId => orderId.Value,
@@ -56,7 +56,8 @@ namespace Ordering.Infrastructure.Data.Configurations
                    .HasMaxLength(50);
 
                     addressBuilder.Property(a => a.State)
-                   .HasMaxLength(50);
+                   .HasMaxLength(50)
+                   .IsRequired();
 
                     addressBuilder.Property(a => a.ZipCode)
                    .HasMaxLength(5);
@@ -87,7 +88,8 @@ namespace Ordering.Infrastructure.Data.Configurations
                .HasMaxLength(50);
 
                 addressBuilder.Property(a => a.ZipCode)
-               .HasMaxLength(5);
+               .HasMaxLength(5)
+               .IsRequired();
             });
 
             builder.ComplexProperty(o => o.Payment, paymentBuilder =>
