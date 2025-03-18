@@ -1,4 +1,6 @@
-﻿using Marten.Events;
+﻿
+
+using Carter;
 
 namespace Ordering.API
 {
@@ -6,14 +8,14 @@ namespace Ordering.API
     {
         public static IServiceCollection AddApiServices(this IServiceCollection services)
         {
-            //services.Carter();
+            services.AddCarter();
 
             return services;
         }
 
         public static WebApplication UseApiServices(this WebApplication app)
         {
-            //app.UseCarter();
+            app.MapCarter();
 
             return app;
         }
