@@ -1,14 +1,10 @@
-﻿namespace Ordering.Application.Orders.Commands.NewFolder
+﻿namespace Ordering.Application.Orders.Commands.UpdateOrder
 {
     public class UpdateOrderHandler(IApplicationDbContext dbContext)
         : ICommandHandler<UpdateOrderCommand, UpdateOrderResult>
     {
         public async Task<UpdateOrderResult> Handle(UpdateOrderCommand command, CancellationToken cancellationToken)
         {
-            /*update Order entity from command object
-             * save to DB
-             return result
-             */
             var orderId = OrderId.Of(command.Order.Id);
             var order = await dbContext.Orders.FindAsync([orderId], cancellationToken: cancellationToken);
 
