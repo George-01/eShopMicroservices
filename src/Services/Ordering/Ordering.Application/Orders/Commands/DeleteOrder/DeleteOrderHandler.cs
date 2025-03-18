@@ -1,4 +1,4 @@
-﻿namespace Ordering.Application.Orders.DeleteOrder
+﻿namespace Ordering.Application.Orders.Commands.DeleteOrder
 {
     public class DeleteOrderHandler(IApplicationDbContext dbContext) 
         : ICommandHandler<DeleteOrderCommand, DeleteOrderResult>
