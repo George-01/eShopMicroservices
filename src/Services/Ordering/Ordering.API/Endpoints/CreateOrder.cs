@@ -25,7 +25,7 @@ namespace Ordering.API.Endpoints
 
                 return Results.Created($"/orders/{response.Id}", response);
             })
-                .WithName("Create Order")
+                .WithName("CreateOrder")
                 .Produces<CreateOrderResponse>(StatusCodes.Status201Created)
                 .ProducesProblem(StatusCodes.Status400BadRequest)
                 .WithSummary("Create Order")
