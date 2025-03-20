@@ -1,6 +1,7 @@
 using BuildingBlocks.Exceptions.Handler;
 using Discount.Grpc;
 using HealthChecks.UI.Client;
+using BuildingBlocks.Messaging.MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,13 +32,6 @@ builder.Services.AddStackExchangeRedisCache(options =>
     options.Configuration = builder.Configuration.GetConnectionString("Redis");
 });
 
-//manual registration of the CachedBasketRepository - alternative approach
-/*builder.Services.AddScoped<IBasketRepository>(provider =>
-{
-    var basketRepository = provider.GetRequiredService<BasketRepository>();
-    return new CachedBasketRepository(basketRepository, provider.GetRequiredService<IDistributedCache>());
-});*/
-
 // Grpc Services  ToDo: Add Grpc Services
 builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(options =>
 {
@@ -51,7 +45,10 @@ builder.Services.AddGrpcClient<DiscountProtoService.DiscountProtoServiceClient>(
         };
 
         return handler;
-    });
+    }); 
+
+//Async Communication Services
+builder.Services.AddMessageBroker(builder.Configuration);
 
 // Corss-cutting Services
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
