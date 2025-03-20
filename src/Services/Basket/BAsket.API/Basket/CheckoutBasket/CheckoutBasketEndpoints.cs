@@ -4,7 +4,7 @@
 
     public record CheckoutBasketResponse(bool IsSuccess);
 
-    public class CheckoutBasketEndpoint : ICarterModule
+    public class CheckoutBasketEndpoints : ICarterModule
     {
         public void AddRoutes(IEndpointRouteBuilder app)
         {
