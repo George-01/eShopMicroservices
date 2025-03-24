@@ -39,8 +39,11 @@ The goal of this project was to gain practical experience in building scalable a
 ## Key Learnings & Takeaways
 
 ✅ Deep understanding of microservices architecture and best practices.
+
 ✅ Implemented real-world patterns like CQRS, event-driven communication, and database-per-microservice.
+
 ✅ Hands-on experience with Docker, and cloud-native application development.
+
 ✅ Improved ability to troubleshoot distributed systems and build resilient applications.
 
 ## Course Reference
