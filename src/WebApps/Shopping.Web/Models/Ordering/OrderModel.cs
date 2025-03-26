@@ -1,22 +1,21 @@
 ﻿namespace Shopping.Web.Models.Ordering
 {
-    public record OrderModel
-    {
-        public record OrderDto(Guid Id,
+    public record OrderModel(
+        Guid Id,
         Guid CustomerId,
         string OrderName,
-        AddressDto ShippingAddress,
-        AddressDto BillingAddress,
-        PaymentDto Payment,
+        AddressModel ShippingAddress,
+        AddressModel BillingAddress,
+        PaymentModel Payment,
         OrderStatus Status,
-        List<OrderItemDto> OrderItems);
-    }
+        List<OrderItemModel> OrderItems);
+    
 
-    public record OrderItemDto(Guid OrderId, Guid ProductId, int Quantity, decimal Price);
+    public record OrderItemModel(Guid OrderId, Guid ProductId, int Quantity, decimal Price);
 
-    public record AddressDto(string FirstName, string LastName, string EmailAddress, string Addressline, string Country, string State, string ZipCode);
+    public record AddressModel(string FirstName, string LastName, string EmailAddress, string AddressLine, string Country, string State, string ZipCode);
 
-    public record PaymentDto(string CardName, string CardNumber, string Expiration, string Cvv, int PaymentMethod);
+    public record PaymentModel(string CardName, string CardNumber, string Expiration, string Cvv, int PaymentMethod);
 
     public enum OrderStatus
     {
