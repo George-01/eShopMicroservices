@@ -56,6 +56,6 @@ This project was implemented while following the Udemy course:
 - Improve logging and monitoring with ELK Stack.
 - Deployment on Azure using AKS, ACR etc
 - Identity Service to implement authentication and authorization
-- Authentication & Authorization: Implemented Identity Server 4 for secure authentication.
+- Authentication & Authorization: Implement Identity Server 4 for secure authentication.
 - Resiliency Patterns: Use Polly for retry policies, circuit breakers, and resiliency strategies.
-- CI/CD Integration: Automated builds and deployments with GitHub Actions and Azure DevOps. (Next steps)
+- CI/CD Integration: Automate builds and deployments with GitHub Actions and Azure DevOps. (Next steps)
